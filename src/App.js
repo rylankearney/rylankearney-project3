@@ -5,6 +5,8 @@ import { getDatabase, ref, onValue, push, remove } from 'firebase/database';
 import React from 'react';
 import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons'
+import Header from './Header.js';
+import Rules from './Rules.js';
 import Footer from './Footer.js';
 
 function App() {
@@ -62,21 +64,18 @@ function App() {
   }
 
       return (
+        <>
+        <Header />
         <div className="App wrapper">
-          <h1>Got a customer complaint?</h1>
-          <ul className="rules">
-            <li>No slurs/namecalling (Karen is an exception)</li>
-            <li>Keep it PG</li>
-            <li>Keep it anonymous</li>
-          </ul>
+            <Rules />
             <form action="submit">
               <label htmlFor="newComment">Spill the tea below</label>
 
-
-
               <textarea type="text" id="newComment" onChange={handleInputChange} value={userInput} />
+
               <button className="postButton" onClick={handleSubmit}>Post</button>
             </form>
+            
             <ul id="displayedComments">
               {comments.map((comments) => {
                 return (
@@ -95,6 +94,7 @@ function App() {
             </ul>
             <Footer />
         </div>
+        </>
       );
     }
 
