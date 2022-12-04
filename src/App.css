@@ -8,12 +8,18 @@ html { box-sizing: border-box;}
 
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni&display=swap');
+
 
 
 body {
 	text-align: center;
 	background: #08090A;
 	color: #A7A2A9;
+	font-family: 'Libre Bodoni', serif;
+	font-size: 125%;
 }
 
 .wrapper {
@@ -28,6 +34,15 @@ h1, h2, h3, ul {
 	padding: 0;
 }
 
+img {
+	height: 150px;
+}
+
+.headerFlex {
+	display: flex;
+	margin: 30px;
+}
+
 a {
 	text-decoration: none;
 	color: #A7A2A9;
@@ -38,10 +53,39 @@ h1 {
 	font-family: 'Londrina Outline', cursive;
 }
 
+h2, h3 {
+	font-family: 'Karla', sans-serif;
+}
+
+h2 {
+	font-size: 3rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+	margin: 20px 0;
+}
+
+.descText {
+	width: 60%;
+	margin: 20px auto;
+}
+
+.rules li {
+	padding: 5px;
+	font-size: 1rem;
+}
+
+
 form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+}
+
+label {
+	padding: 20px;
+	
 }
 
 
@@ -63,6 +107,7 @@ textarea {
 	color: #F4F7F5;
 	background: #575A5E;
 	border: none;
+	padding: 10px 20px;
 }
 
 #displayedComments li {
