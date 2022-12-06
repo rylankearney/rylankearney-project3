@@ -8,14 +8,19 @@ import { faX } from '@fortawesome/free-solid-svg-icons'
 import Header from './Header.js';
 import Rules from './Rules.js';
 import Counter from './Counter.js';
+import Banner from './Banner.js';
 import Footer from './Footer.js';
+
 
 function App() {
 
+  // Setting up a stateful variable to hold our comments (an empty array to start).
 
   const [ comments, setComments] = useState( [] );
 
   const [userInput, setUserInput] = useState('');
+
+  //const [counter, setCounter] = useState(0);
 
 
 
@@ -24,7 +29,7 @@ function App() {
     const dbRef = ref(database, "comments");
 
     onValue(dbRef, (resp) => {
-      //console.log(resp.val());
+      
 
       const data = resp.val();
 
@@ -34,11 +39,14 @@ function App() {
         updatedDatabaseInfo.push({
           key: key, 
           name: data[key], 
+          likes: data[key].counter
          });
       }
       //Passing that array INTO our setComments function to update our stateful variable
 
       setComments(updatedDatabaseInfo);
+      //console.log(updatedDatabaseInfo.likes);
+
     })
   }, [])
 
@@ -46,6 +54,8 @@ function App() {
     setUserInput(e.target.value)
     
   }
+
+  
 
   const handleSubmit = (e)=> {
     e.preventDefault();
@@ -55,12 +65,13 @@ function App() {
     comment: userInput,
     counter: 0
   }
+  
 
   const database = getDatabase(app);
    const dbRef = ref(database, "comments");
 
    
-
+//conditional for an empty comment input
   if (userInput) {
     push(dbRef, commentObject);
     setUserInput('');
@@ -71,6 +82,8 @@ function App() {
   setUserInput('');
   }
 
+  // push(dbRef, data[key].counter)
+  // setCounter()
  
 
   const handleRemoveComment = (commentId) => {
@@ -110,6 +123,7 @@ function App() {
 
               })}
             </ul>
+            <Banner />
             <Footer />
         </div>
         </>

@@ -149,6 +149,14 @@ textarea {
 	cursor: pointer;
 }
 
+.bannerImg {
+	background: url(./pexels-tim-douglas-6205476.jpg);
+	height: 220px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position-y: 65%;
+}
+
 @media (max-width: 900px) {
 	textarea {
 		width: 70%;
