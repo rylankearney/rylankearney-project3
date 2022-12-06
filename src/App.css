@@ -91,7 +91,7 @@ label {
 
 textarea {
 	resize: none;
-	width: 50%;
+	width: 60%;
 	height: 200px;
 	border: 5px solid #222823;
 	outline: none;
@@ -99,6 +99,7 @@ textarea {
 	background: #08090A;
 	color: #A7A2A9;
 	padding: 20px;
+	font-family: 'Libre Bodoni', serif;
 }
 
 .postButton {
@@ -108,13 +109,16 @@ textarea {
 	background: #575A5E;
 	border: none;
 	padding: 10px 20px;
+	font-family: 'Karla', sans-serif;
+	text-transform: uppercase;
+
 }
 
 #displayedComments li {
 	padding: 30px 60px;
 	border: 5px solid #222823;
 	position: relative;
-	width: 60%;
+	width: 70%;
 	margin: 30px auto;
 }
 
@@ -130,4 +134,60 @@ textarea {
 	border: none;
 	cursor: pointer;
 	color: #F4F7F5;
+}
+
+
+.likeButton {
+	display: flex;
+}
+
+.heartButton {
+	background: transparent;
+	color: fuchsia;
+	padding: 20px;
+	border: none;
+	cursor: pointer;
+}
+
+@media (max-width: 900px) {
+	textarea {
+		width: 70%;
+	}
+	#displayedComments li {
+		width: 80%;
+	}
+}
+
+@media (max-width: 600px) {
+	textarea {
+		width: 80%;
+	}
+	#displayedComments li {
+		width: 90%;
+	}
+}
+
+@media (max-width: 450px) {
+	.descText {
+		width: 80%;
+		font-size: 1.1rem;
+	}
+
+	h1 {
+		font-size: 4rem;
+	}
+
+	h2 {
+		font-size: 2.3rem;
+	}
+
+
+
+	img {
+		height: 100px;
+	}
+
+	.footerText {
+		font-size: 0.8rem;
+	}
 }

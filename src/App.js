@@ -7,6 +7,7 @@ import { FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import { faX } from '@fortawesome/free-solid-svg-icons'
 import Header from './Header.js';
 import Rules from './Rules.js';
+import Counter from './Counter.js';
 import Footer from './Footer.js';
 
 function App() {
@@ -17,20 +18,23 @@ function App() {
   const [userInput, setUserInput] = useState('');
 
 
+
   useEffect( () => {
     const database = getDatabase(app);
-    const dbRef = ref(database);
+    const dbRef = ref(database, "comments");
 
     onValue(dbRef, (resp) => {
       //console.log(resp.val());
 
-      const data = resp.val()
+      const data = resp.val();
+
 
       const updatedDatabaseInfo = [];
       for (let key in data) {
-        //console.log(key)
-        //console.log(data[key])
-        updatedDatabaseInfo.push({key: key, name: data[key]});
+        updatedDatabaseInfo.push({
+          key: key, 
+          name: data[key], 
+         });
       }
       //Passing that array INTO our setComments function to update our stateful variable
 
@@ -45,20 +49,33 @@ function App() {
 
   const handleSubmit = (e)=> {
     e.preventDefault();
-  
 
+  
+  const commentObject = {
+    comment: userInput,
+    counter: 0
+  }
 
   const database = getDatabase(app);
-  const dbRef = ref(database);
+   const dbRef = ref(database, "comments");
 
-  push(dbRef, userInput);
+   
+
+  if (userInput) {
+    push(dbRef, commentObject);
+    setUserInput('');
+  } else {
+    alert("Please write a comment") ;
+  }
 
   setUserInput('');
   }
 
+ 
+
   const handleRemoveComment = (commentId) => {
     const database = getDatabase(app);
-    const dbRef = ref(database, `/${commentId}`)
+    const dbRef = ref(database, `comments/${commentId}`)
 
     remove(dbRef);
   }
@@ -71,22 +88,23 @@ function App() {
             <form action="submit">
               <label htmlFor="newComment">Spill the tea below</label>
 
-              <textarea type="text" id="newComment" onChange={handleInputChange} value={userInput} />
+              <textarea type="text" id="newComment" onChange={handleInputChange} value={userInput} required></textarea>
 
               <button className="postButton" onClick={handleSubmit}>Post</button>
             </form>
+
             
             <ul id="displayedComments">
-              {comments.map((comments) => {
+              {comments.map((indComment) => {
                 return (
-              
-              <li key={comments.key}>
-                <p>{comments.name}</p>
+              <li key={indComment.key}>
+                <p>{indComment.name.comment}</p>
                 <button 
                 className="closeButton"
-                onClick={ () => handleRemoveComment(comments.key) }>
+                onClick={ () => handleRemoveComment(indComment.key) }>
                   <FontAwesomeIcon icon={faX} />
                 </button>
+                <Counter />
               </li>
               )
 
@@ -99,4 +117,4 @@ function App() {
     }
 
 
-export default App;
+export default App
