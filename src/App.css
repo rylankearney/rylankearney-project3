@@ -141,12 +141,17 @@ textarea {
 	display: flex;
 }
 
-.heartButton {
+.reactionButton {
 	background: transparent;
 	color: fuchsia;
 	padding: 20px;
 	border: none;
 	cursor: pointer;
+}
+
+.buttonFlex {
+	display: flex;
+	justify-content: space-between;
 }
 
 .bannerImg {
