@@ -1,3 +1,5 @@
+// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -5,13 +7,12 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 
 const firebaseConfig = {
-
-  apiKey: "AIzaSyBHpbjd0zuhp3QlZGgiCqX76USfck_yvj0",
-  authDomain: "welp-app-592a9.firebaseapp.com",
-  projectId: "welp-app-592a9",
-  storageBucket: "welp-app-592a9.appspot.com",
-  messagingSenderId: "466976155748",
-  appId: "1:466976155748:web:ac26a03e0bdc20fa845771"
+  apiKey: "AIzaSyDlfJKVEOyZlzVjCUPxyHQupvR-oel2yM8",
+  authDomain: "project-3-welp.firebaseapp.com",
+  projectId: "project-3-welp",
+  storageBucket: "project-3-welp.appspot.com",
+  messagingSenderId: "1025192295721",
+  appId: "1:1025192295721:web:4c803c6639a6ea5887cb38"
 };
 
 
@@ -20,3 +21,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export default app;
+
+// Import the functions you need from the SDKs you need
+
