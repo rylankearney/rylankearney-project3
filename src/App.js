@@ -82,6 +82,7 @@ function App() {
   if (userInput) {
     push(dbRef, commentObject);
     setUserInput('');
+    alert("Success!");
   } else {
     alert("Please write a comment") ;
   }
