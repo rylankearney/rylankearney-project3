@@ -111,6 +111,7 @@ textarea {
 	padding: 10px 20px;
 	font-family: 'Karla', sans-serif;
 	text-transform: uppercase;
+	cursor: pointer;
 
 }
 
